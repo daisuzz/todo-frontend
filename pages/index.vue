@@ -33,7 +33,7 @@
               title="contribute"
             >
               issue board
-            </a>.
+            </a>
           </p>
           <p>
             Thank you for developing with Vuetify and I look forward to bringing
