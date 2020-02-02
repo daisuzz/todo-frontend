@@ -1,12 +1,31 @@
 <template>
   <div>
-    <v-flex class="text-left">
-      <v-btn to="/create" color="#097">
-        Create Todo
-      </v-btn>
-    </v-flex>
+    <v-card>
+      <v-form ref="form" @submit.prevent="submit">
+        <v-card-actions>
+          <v-btn
+            color="#097"
+            type="submit"
+          >Create
+          </v-btn>
+        </v-card-actions>
+        <v-simple-table>
+          <template v-slot:default>
+            <tbody>
+            <tr>
+              <td>Title</td>
+              <td>
+                <v-text-field v-model="form.title"></v-text-field>
+              </td>
+            </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
+      </v-form>
+    </v-card>
     <v-flex class="text-center">
       <v-card>
+        <v-card-title>Your ToDo List</v-card-title>
         <v-simple-table>
           <template v-slot:default>
             <thead>
@@ -35,30 +54,25 @@
 <script>
   export default {
     data() {
-      return {
-        todoList: [
-          {
-            title: "ジムに行く",
-            status: "UNDONE"
-          },
-          {
-            title: "朝食を食べる",
-            status: "DONE"
-          },
-          {
-            title: "昼食を食べる",
-            status: "UNDONE "
-          },
-          {
-            title: "夕食を食べる",
-            status: "UNDONE"
-          },
-          {
-            title: "本を読む",
-            status: "DONE"
-          }
-        ]
+      const defaultForm = {
+        title: "",
+        status: "UNDONE"
       }
+      return {
+        form: Object.assign({}, defaultForm),
+        todoList: [],
+        defaultForm
+      }
+    },
+    methods: {
+      resetForm() {
+        this.form = Object.assign({}, this.defaultForm)
+        this.$refs.form.reset()
+      },
+      submit() {
+        this.todoList.push(this.form)
+        this.resetForm()
+      },
     }
   }
 </script>
