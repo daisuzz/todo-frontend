@@ -51,28 +51,31 @@
   </div>
 </template>
 
-<script>
-  export default {
-    data() {
+<script lang="ts">
+  import Vue from 'vue'
+
+  export default Vue.extend({
+    data(): any {
       const defaultForm = {
         title: "",
         status: "UNDONE"
-      }
+      };
       return {
         form: Object.assign({}, defaultForm),
         todoList: [],
         defaultForm
       }
     },
+
     methods: {
-      resetForm() {
-        this.form = Object.assign({}, this.defaultForm)
+      resetForm(): void {
+        this.form = Object.assign({}, this.defaultForm);
         this.$refs.form.reset()
       },
-      submit() {
-        this.todoList.push(this.form)
+      submit(): void {
+        this.todoList.push(this.form);
         this.resetForm()
-      },
+      }
     }
-  }
+  })
 </script>
