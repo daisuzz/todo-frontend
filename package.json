@@ -43,8 +43,6 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,vue}": [
-      "npm run lint"
-    ]
+    "*.{js,vue}": "npm run lint"
   }
 }
