@@ -5,20 +5,20 @@
   "author": "Daisaku Suzuki",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "dev": "cross-env NODE_ENV=development nodemon server/index.ts --watch server",
     "build": "nuxt build",
-    "start": "cross-env NODE_ENV=production node server/index.js",
+    "start": "cross-env NODE_ENV=production node server/index.ts",
     "generate": "nuxt generate",
     "test": "jest",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "nuxt": "^2.0.0",
+    "consola": "latest",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
-    "vuetify": "latest",
-    "consola": "latest"
+    "nuxt": "^2.0.0",
+    "vuetify": "latest"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.5.6",
