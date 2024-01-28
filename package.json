@@ -17,7 +17,7 @@
     "consola": "latest",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
-    "nuxt": "^3.4.3",
+    "nuxt": "^3.9.3",
     "vuetify": "latest"
   },
   "devDependencies": {
